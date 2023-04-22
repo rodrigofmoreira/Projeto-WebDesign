@@ -1,0 +1,273 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0%;
+    border: 0;
+}
+/*CSS GERAL PARAS PAGINAS HTML*/
+
+/*PRECISEI ESCONDER A BARRA DE ROLAGEM HORIZONTAL DO SITE PORQUE TAVA ATRAPALHANDO*/
+body {
+    overflow-x: hidden
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+/*"CAPA" DO SITE - quando abre ele, é a 1ª coisa que se ver*/
+.header-container {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./imagens/capa-site.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative
+}
+
+.decoration {
+    align-self: left;
+    margin-left: 150px;
+    margin-bottom: -10px;
+}
+
+h1 {
+    font-family: serif;
+    font-size: 60px;
+    font-weight: 100;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-transform: none;
+}
+
+/* BOTÃO SAIBA MAIS*/
+
+.learn-more {
+    display: flex;
+    border-radius: 6px;
+    background: transparent;
+    box-shadow: 3px 8px 22px rgba(94, 28, 68, 0.15);
+}
+
+.learn-more .btn {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 3px 8px 22px rgba(94, 28, 68, 0.15);
+    transition: 0.5s ease-in-out;
+}
+
+a.btn:hover {
+   background: #ffb200;
+}
+
+/*3 TRACINHOS DO MENU*/
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400ms ease-in-out 0s;
+}
+
+.checkbox .trace {
+    width: 50px;
+    height: 2px;
+    background-color: #ffb200;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1) {
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2) {
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3) {
+    top: 66px;
+    transform: rotate(0);
+}
+
+#toggle {
+    display: none;
+}
+
+/*MENU DO SITE*/
+
+.menu {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px #25bfc1;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items ul{
+    list-style-type: none;
+}
+
+.menu-items ul li a {
+    margin: 10px;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+}
+
+/*ANIMAÇÃO DO MENU (TRACINHOS fazendo x)*/
+
+#toggle:checked + .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    top: 47px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    transform: translate(-100px);
+    width: 38px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 48px;
+}
+
+/*EFEITO EXPANDIR DO MENU*/
+
+#toggle:checked + .checkbox {
+    background-color: #25bfc1;
+}
+
+#toggle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax #25bfc1;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-items {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*BOTEI ISSO PARA FAZER UMA DIVISÃO MAIS BONITA ENTRE A "CAPA" E A PARTE DO CONTEÚDO DO SITE*/
+
+#barra-principal {
+    margin: 0;
+    padding: 0;
+    margin-top: -49px;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(45deg, #ffb200, #b01b20, #aa2a33, #ed2039);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PARTE DOS CONTEÚDOS EM TEXTO*/
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    color: #031d20;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    display:flexbox;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    margin: 3rem 0;
+}
+
+.text {
+    display: flexbox;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    padding: 50px 50px;
+}
+
+h2 {
+    font-family: serif;
+    font-size: 50px;
+    color: #b01b20;
+    margin: 20px;
+    margin-left: 30px;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #031d20;
+    line-height: 40px;
+    margin: 30px;
+    margin-top: 10px;
+}
+
+/*RODAPÉ*/
+
+.footer {
+    font-family: sans-serif;
+    font-size: 15px;
+    width: 100%;
+    height: 50px;
+    background-color: #25bfc1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #031d20;
+}
